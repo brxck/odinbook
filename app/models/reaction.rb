@@ -1,6 +1,6 @@
 class Reaction < ApplicationRecord
   belongs_to :user
-  belongs_to :post
+  belongs_to :reactable, polymorphic: true
 
-  validates :user, :post, :type, presence: true
+  validates :user, :reactable, :type, presence: true
 end
