@@ -10,11 +10,11 @@ class User < ApplicationRecord
   has_many :friend_requests, dependent: :destroy
   has_many :pending_friends, through: :friend_requests, source: :friend
 
-  has_many :posts
-  has_many :comments
-  has_many :likes
+  has_many :posts, dependent: :destroy
+  has_many :comments, dependent: :destroy
+  has_many :likes, dependent: :destroy
 
-  has_one :profile
+  has_one :profile, dependent: :destroy
 
   def remove_friend(friend)
     current_user.friends.destroy(friend)
