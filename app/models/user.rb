@@ -18,7 +18,7 @@ class User < ApplicationRecord
 
   has_one :profile, dependent: :destroy
 
-  validates :name, presence: true, length: { max: 50 }
+  validates :name, presence: true, length: { maximum: 50 }
 
   def remove_friend(friend)
     current_user.friends.destroy(friend)
