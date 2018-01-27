@@ -12,4 +12,7 @@ html
     = csrf_meta_tags
 
   body
-= yield
+    = flash.each do |type, message|
+      div class="type" = message
+ 
+    = yield
