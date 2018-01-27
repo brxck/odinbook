@@ -1,8 +1,9 @@
 class PagesController < ApplicationController
   layout "outside"
   skip_before_action :authenticate_user!
+  before_action :redirect_signed_in, only: %i[login signup]
 
-  def home
+  def login
   end
 
   def about
@@ -12,5 +13,11 @@ class PagesController < ApplicationController
   end
 
   def signup
+  end
+
+  private
+
+  def redirect_signed_in
+    redirect_to about_path if user_signed_in?
   end
 end
