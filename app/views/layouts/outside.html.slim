@@ -1,0 +1,38 @@
+doctype html
+html
+  head
+    title = content_for?(:title) ? content_for(:title) + " | OdinBook" : "OdinBook" 
+
+    meta name="viewport" content="width=device-width, initial-scale=1.0"
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    = csrf_meta_tags
+
+  body
+
+    section.hero.is-success.is-medium
+      div.hero-head
+        div.container
+          - flash.each do |type, message|
+            div class="notification is-success"
+            = message
+
+      div.hero-body
+        div.container
+          h1.title
+            | OdinBook
+          h2.subtitle
+            | The Divine Network
+
+      div.hero-foot
+        div.container
+          nav.tabs.is-boxed
+            ul
+              == active_tab("Sign Up", signup_path)
+              == active_tab("Log In", root_path)
+              == active_tab("About", about_path)
+              == active_tab("Contact", contact_path)
+
+    div.section
+      div.container
+        = yield

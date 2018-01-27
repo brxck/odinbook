@@ -1,0 +1,27 @@
+= form_tag session_path(:user) do
+
+  div.field
+    label.label Email
+    div.control
+      = text_field_tag 'user[email]', nil, class: 'input'
+
+  div.field
+    label.label Password
+    div.control
+      = password_field_tag 'user[password]', nil, class: 'input'
+
+  div.field
+    label.label Confirmation
+    div.control
+      = password_field_tag 'user[password_confirmation]', nil, class: 'input'
+
+  div.field
+    div.control
+      = check_box_tag 'user[remember_me]'
+      = label_tag 'user[remember_me]', ' Remember me'
+
+  div.field.is-grouped
+    div.control
+      = submit_tag "Sign in", class: 'button is-success'
+    div.control
+      = link_to "Forgot password?", new_password_path(:user), class: 'button is-text'

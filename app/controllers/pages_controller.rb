@@ -1,11 +1,15 @@
 class PagesController < ApplicationController
+  layout "outside"
+
   def home
-    render 'home', layout: 'containerless'
   end
 
   def about
   end
 
   def contact
+  end
+
+  def signup
   end
 end

@@ -1,25 +1,10 @@
 = content_for :title { "Home" }
 
-section.hero.is-success.is-medium
-  div.hero-body
-    div.container
-      h1.title
-        | OdinBook
-      h2.subtitle
-        | The Divine Network
-  div.hero-foot
-    div.container
-      nav.tabs.is-boxed
-        ul
-          li = link_to 'Sign Up'
-          li.is-active = link_to 'Log In'
-          li = link_to 'About'
-          li = link_to 'Contact'
-
 div.section
   div.container
     div.columns
       div.column
         p The social network for the divine.
       div.column
-        p form for login here
+        h2.title Log In
+        = render "login"
