@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   layout "outside"
+  skip_before_action :authenticate_user!
 
   def home
   end
