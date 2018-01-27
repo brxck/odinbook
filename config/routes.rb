@@ -1,17 +1,14 @@
 Rails.application.routes.draw do
-  get 'friends/index'
+  root "pages#home"
 
-  get 'friends/destroy'
+  get "pages/home"
 
-  get 'friend_requests/index'
+  get "pages/about"
 
-  get 'friend_requests/create'
+  get "pages/contact"
 
-  get 'friend_requests/update'
-
-  get 'friend_requests/destroy'
+  root "devise/sessions#new"
 
   resources :friend_requests
   devise_for :users
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

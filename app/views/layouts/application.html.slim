@@ -1,10 +1,7 @@
 doctype html
 html
   head
-    - if title
-      title = title + " | OdinBook"
-    - else
-      title OdinBook
+    title = content_for?(:title) ? content_for(:title) + " | OdinBook" : "OdinBook" 
 
     meta name="viewport" content="width=device-width, initial-scale=1.0"
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
@@ -12,7 +9,12 @@ html
     = csrf_meta_tags
 
   body
-    = flash.each do |type, message|
-      div class="type" = message
- 
-    = yield
+    = render 'shared/navbar'
+
+    - flash.each do |type, message|
+      div class="notification is-#{type}"
+        = message
+
+    section.section
+      div.container
+        = yield
