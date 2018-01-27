@@ -20,7 +20,15 @@ class User < ApplicationRecord
 
   validates :name, presence: true, length: { maximum: 50 }
 
+  before_create :build_default_profile
+
   def remove_friend(friend)
     current_user.friends.destroy(friend)
+  end
+
+  private
+
+  def build_default_profile
+    build_profile
   end
 end
