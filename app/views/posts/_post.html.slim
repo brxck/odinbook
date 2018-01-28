@@ -23,5 +23,5 @@
           a.button.is-rounded.is-small.is-danger.is-outlined href="#"
             | Smite
 
-  = render post.comments
+  = render post.comments.order(created_at: :asc)
             
