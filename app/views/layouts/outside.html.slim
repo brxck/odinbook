@@ -11,21 +11,21 @@ html
   body
 
     section.hero.is-success.is-medium
-      div.hero-head
-        div.container
+      .hero-head
+        .container
           - flash.each do |type, message|
             div class="notification is-success"
             = message
 
-      div.hero-body
-        div.container
+      .hero-body
+        .container
           h1.title
             | OdinBook
           h2.subtitle
             | The Divine Network
 
-      div.hero-foot
-        div.container
+      .hero-foot
+        .container
           nav.tabs.is-boxed
             ul
               == active_tab("Sign Up", signup_path)
@@ -33,6 +33,6 @@ html
               == active_tab("About", about_path)
               == active_tab("Contact", contact_path)
 
-    div.section
-      div.container
+    .section
+      .container
         = yield

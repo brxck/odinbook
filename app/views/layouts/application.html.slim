@@ -11,10 +11,11 @@ html
   body
     = render 'shared/navbar'
 
-    - flash.each do |type, message|
-      div class="notification is-#{type}"
-        = message
+    .container
+      - flash.each do |type, message|
+        div class="notification is-#{type}"
+          = message
 
     section.section
-      div.container
+      .container
         = yield

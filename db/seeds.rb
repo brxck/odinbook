@@ -21,6 +21,8 @@ def seed_user
                                  intro: intro,
                                  kind: type.to_s.capitalize)
   user.profile.save!
+
+  3.times { seed_posts(user) }
 end
 
 def seed_friendships
@@ -29,6 +31,21 @@ def seed_friendships
   return if users.first == users.last
   users.first.friends << users.last
 end
+
+def seed_posts(user)
+  body = Faker::HitchhikersGuideToTheGalaxy.quote
+  post = user.posts.new(body: body)
+  post.save!
+end
+
+admin = User.create!(name: "Brock McElroy",
+                     email: "brxck@protonmail.com",
+                     password: "testtest",
+                     password_confirmation: "testtest")
+admin.profile.update_attributes(age: 23,
+                                location: "Tucson, AZ",
+                                intro: "Odinbooks's Tom.",
+                                kind: "Demi-God")
 
 USERS.times { seed_user }
 USERS.times { seed_friendships }

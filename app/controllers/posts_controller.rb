@@ -12,6 +12,7 @@ class PostsController < ApplicationController
   end
 
   def index
+    @posts = Post.where(user: current_user).or(Post.where(user: current_user.friends))
   end
 
   def show
