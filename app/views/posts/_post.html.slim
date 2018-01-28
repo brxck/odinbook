@@ -3,11 +3,14 @@ article.media.box
     p.image.is-64x64
       = image_tag Faker::Placeholdit.image("64x64", 'png', 'd3d3d3', '000')
   .media-content
-    p
-      strong> = post.user.name
-      = time_ago_in_words(post.created_at) + " ago"
-      br
-      = post.body
+    .level.is-mobile
+      .level-left 
+        .level-item
+          strong = post.user.name
+        .level-item
+          .is-size-7 = time_ago_in_words(post.created_at) + " ago"
+
+    = post.body
 
   .media-right
     .buttons.has-addons
