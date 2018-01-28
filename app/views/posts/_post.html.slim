@@ -1,0 +1,18 @@
+article.media.box
+  figure.media-left
+    p.image.is-64x64
+      = image_tag Faker::Placeholdit.image("64x64", 'png', 'd3d3d3', '000')
+  .media-content
+    p
+      strong> = post.user.name
+      = time_ago_in_words(post.created_at) + " ago"
+      br
+      = post.body
+
+  .media-right
+    .buttons.has-addons
+      span.button.is-rounded.is-small.is-info.is-outlined
+        | Bless
+      span.button.is-rounded.is-small.is-danger.is-outlined
+        | Smite
+          
