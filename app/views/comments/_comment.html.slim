@@ -1,0 +1,18 @@
+  article.media
+    figure.media-left
+      p.image.is-32x32
+        = image_tag Faker::Placeholdit.image("32x32", "png", "d3d3d3")
+
+    .media-content
+      small
+        strong> = comment.user.name
+        = comment.body
+        br
+
+        div
+          small
+            = link_to "Bless", "#", class: "is-info"
+            = " · " 
+            => link_to "Smite", "#", class: "is-danger"
+            = " · " 
+            = time_ago_in_words(comment.created_at)
