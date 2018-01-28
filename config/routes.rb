@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root "pages#home"
+  root "posts#index"
 
   get "pages/login", as: "login"
   get "pages/about", as: "about"
