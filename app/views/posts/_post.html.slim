@@ -7,7 +7,7 @@
       .level.is-mobile
         .level-left 
           .level-item
-            strong = post.user.name
+            strong = link_to post.user.name, post.user
           .level-item
             .is-size-7 = time_ago_in_words(post.created_at) + " ago"
 
@@ -24,4 +24,5 @@
             | Smite
 
   = render post.comments.order(created_at: :asc)
+
             
