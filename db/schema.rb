@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180129023128) do
+ActiveRecord::Schema.define(version: 20180129023405) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -82,6 +82,7 @@ ActiveRecord::Schema.define(version: 20180129023128) do
     t.datetime "updated_at", null: false
     t.string "reactable_type"
     t.bigint "reactable_id"
+    t.index ["name"], name: "index_reactions_on_name"
     t.index ["reactable_type", "reactable_id"], name: "index_reactions_on_reactable_type_and_reactable_id"
     t.index ["user_id"], name: "index_reactions_on_user_id"
   end
