@@ -1,11 +1,10 @@
 Rails.application.routes.draw do
+  root "pages#login"
 
-  root "posts#index"
-
-  get "pages/login", as: "login"
-  get "pages/about", as: "about"
-  get "pages/contact", as: "contact"
-  get "pages/signup", as: "signup"
+  get "login", to: "pages#login", as: "login"
+  get "about", to: "pages#about", as: "about"
+  get "contact", to: "pages#contact", as: "contact"
+  get "signup", to: "pages#signup", as: "signup"
 
   resources :users
   resources :posts
