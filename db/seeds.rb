@@ -9,7 +9,7 @@ def seed_user(number)
     name = GODS.pop
     email = name.delete(" ") + "@" + Faker::Internet.domain_name
     location = Faker::Address.city + ", " + Faker::Address.country
-    intro = Faker::Overwatch.quote
+    intro = Faker::Overwatch.quote + "."
 
     user = User.new(name: name,
                     email: email,
@@ -18,9 +18,9 @@ def seed_user(number)
     user.save!
 
     user.profile.update_attributes(age: rand(2000..3000),
-                                  location: location,
-                                  intro: intro,
-                                  kind: type.to_s.capitalize)
+                                   location: location,
+                                   intro: intro,
+                                   kind: type.to_s.capitalize)
     user.profile.save!
 
     10.times { seed_posts(user) }
