@@ -1,0 +1,16 @@
+.field
+  .control
+    - if post.blessings.count == 0
+      a.button.is-rounded.is-small.is-outlined.is-info href="#"
+        | bless
+    - else
+      a.button.is-rounded.is-small.is-outlined.is-info href="#" data-badge=post.blessings.count
+        | bless
+.field
+  .control
+    - if post.smitings.count == 0
+      a.button.is-rounded.is-small.is-outlined.is-danger href="#"
+        | smite
+    - else
+      a.button.is-rounded.is-small.is-outlined.is-danger href="#" data-badge=post.smitings.count
+        | smite

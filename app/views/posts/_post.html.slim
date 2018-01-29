@@ -14,14 +14,7 @@
       = post.body
 
     .media-right
-      .field
-        .control
-          a.button.is-rounded.is-small.is-info.is-outlined href="#"
-            | Bless
-      .field
-        .control
-          a.button.is-rounded.is-small.is-danger.is-outlined href="#"
-            | Smite
+      = render partial: 'posts/reaction_buttons', locals: { post: post }
 
   = render post.comments.order(created_at: :asc)
 
