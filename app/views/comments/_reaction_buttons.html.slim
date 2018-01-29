@@ -1,0 +1,11 @@
+- if comment.blessings.count.zero?
+  = link_to "Bless", "#"
+- else
+  = link_to "[#{comment.blessings.count}] Bless", "#"
+
+= " · " 
+
+- if comment.smitings.count.zero?
+  = link_to "Smite", "#"
+- else
+  = link_to "[#{comment.smitings.count}] Smite", "#"

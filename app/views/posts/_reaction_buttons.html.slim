@@ -2,15 +2,15 @@
   .control
     - if post.blessings.count == 0
       a.button.is-rounded.is-small.is-outlined.is-info href="#"
-        | bless
+        | Bless
     - else
-      a.button.is-rounded.is-small.is-outlined.is-info href="#" data-badge=post.blessings.count
-        | bless
+      a.button.is-rounded.is-small.is-outlined.is-info.badge.is-badge-info href="#" data-badge=post.blessings.count
+        | Bless
 .field
   .control
     - if post.smitings.count == 0
       a.button.is-rounded.is-small.is-outlined.is-danger href="#"
-        | smite
+        | Smite
     - else
-      a.button.is-rounded.is-small.is-outlined.is-danger href="#" data-badge=post.smitings.count
-        | smite
+      a.button.is-rounded.is-small.is-outlined.is-danger.badge.is-badge-danger href="#" data-badge=post.smitings.count
+        | Smite

@@ -11,8 +11,6 @@
 
         div
           small
-            = link_to "Bless", "#", class: "is-info"
-            = " · " 
-            => link_to "Smite", "#", class: "is-danger"
+            = render partial: "comments/reaction_buttons", locals: { comment: comment}
             = " · " 
             = time_ago_in_words(comment.created_at)
