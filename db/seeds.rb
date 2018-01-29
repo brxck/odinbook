@@ -67,6 +67,6 @@ end
 
 
 seed_user(USER_NUMBER)
-seed_friendships(USER_NUMBER)
+seed_friendships(USER_NUMBER*4)
 seed_comments(3)
 create_admin
