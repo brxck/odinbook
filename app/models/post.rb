@@ -6,11 +6,5 @@ class Post < ApplicationRecord
 
   validates :user, :body, presence: true
 
-  def blessings
-    reactions.where(name: "bless")
-  end
-
-  def smitings
-    reactions.where(name: "smite")
-  end
+  include ReactionsHelper
 end

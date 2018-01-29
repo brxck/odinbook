@@ -1,17 +1,17 @@
 module CommentsHelper
-  def comment_reaction_text(comment, reaction)
-    if comment.reaction(reaction).count.zero?
-       reaction.capitalize
+  def comment_reaction_text(comment, name)
+    if comment.reaction(name).count.zero?
+       name.capitalize
     else 
-      "[#{comment.reaction(reaction).count}] #{reaction.capitalize}"
+      "[#{comment.reaction(name).count}] #{name.capitalize}"
     end
   end
 
-  def comment_reaction_link(comment, reaction)
-    link_to comment_reaction_text(comment, reaction),
+  def comment_reaction_link(comment, name)
+    link_to comment_reaction_text(comment, name),
     reactions_path(reaction: { reactable_id: comment.id,
                                reactable_type: "Comment",
-                               name: reaction }),
+                               name: name }),
     method: :post
   end
 end

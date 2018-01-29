@@ -6,15 +6,5 @@ class Comment < ApplicationRecord
 
   validates :user, :commentable, :body, presence: true
 
-  def reaction(name)
-    reactions.where(name: name)
-  end
-
-  def blessings
-    reactions.where(name: "bless")
-  end
-
-  def smitings
-    reactions.where(name: "smite")
-  end
+  include ReactionsHelper
 end

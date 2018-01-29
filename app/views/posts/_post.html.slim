@@ -14,7 +14,12 @@
       = post.body
 
     .media-right
-      = render partial: 'posts/reaction_buttons', locals: { post: post }
+      .field
+        .control
+          = post_reaction_button(post, "bless", "is-info is-badge-info")
+      .field
+        .control
+          = post_reaction_button(post, "smite", "is-danger is-badge-danger")
 
   = render post.comments.order(created_at: :asc)
 
