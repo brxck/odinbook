@@ -1,0 +1,9 @@
+.box
+  h2.title.is-5 Friends
+  - @friends.each do |friend|
+    .level
+      .level-left
+        .level-item
+          = image_tag Faker::Placeholdit.image("24x24", "png", "d3d3d3")
+        .level-item
+          = link_to friend.name, friend

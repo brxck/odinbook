@@ -1,0 +1,16 @@
+.level
+  .level-item
+    h1.title = @profile.user.name
+.level
+  .level-item
+      figure.image.is-128x128
+        = image_tag Faker::Placeholdit.image("128x128", "png", "d3d3d3")
+div.box
+  strong Intro
+  p = @profile.intro
+  strong> Age
+  p = "#{@profile.age} years old"  
+  strong Location
+  p = @profile.location
+
+

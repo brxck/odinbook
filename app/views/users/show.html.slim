@@ -1,2 +1,7 @@
-h1 Users#show
-p Find me in app/views/users/show.html.slim
+div.columns
+  div.column.is-one-quarter
+    = render 'profile'
+    = render 'friends'
+  div.column.is-two-fifths
+    = render @posts
+  div.column
