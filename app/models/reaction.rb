@@ -7,8 +7,7 @@ class Reaction < ApplicationRecord
   before_create :delete_other_reaction
 
   def delete_other_reaction
-    if (other_reaction = Reaction.where(user_id: user_id, reactable: reactable).first)
-      other_reaction.destroy
-    end
+    other_reaction = Reaction.where(user_id: user_id, reactable: reactable).take
+    other_reaction.destroy if other_reaction
   end
 end

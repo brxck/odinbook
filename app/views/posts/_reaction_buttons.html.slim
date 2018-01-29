@@ -1,16 +1,33 @@
 .field
   .control
     - if post.blessings.count == 0
-      a.button.is-rounded.is-small.is-outlined.is-info href="#"
-        | Bless
+      = link_to "Bless", reactions_path(reaction: { reactable_id: post.id,
+                                                    reactable_type: "Post",
+                                                    name: "bless" }),
+                method: :post,
+                class: "button is-rounded is-small is-outlined is-info"
     - else
-      a.button.is-rounded.is-small.is-outlined.is-info.badge.is-badge-info href="#" data-badge=post.blessings.count
-        | Bless
+      = link_to "Bless", reactions_path(reaction: { reactable_id: post.id,
+                                                    reactable_type: "Post",
+                                                    name: "bless" }),
+                method: :post,
+                class: "button is-rounded is-small is-outlined is-info badge is-badge-info",
+                "data-badge" => post.blessings.count
+
 .field
   .control
     - if post.smitings.count == 0
-      a.button.is-rounded.is-small.is-outlined.is-danger href="#"
-        | Smite
+      = link_to "Smite",
+                reactions_path(reaction: { reactable_id: post.id,
+                                           reactable_type: "Post",
+                                           name: "smite" }),
+                method: :post,
+                class: "button is-rounded is-small is-outlined is-danger"
     - else
-      a.button.is-rounded.is-small.is-outlined.is-danger.badge.is-badge-danger href="#" data-badge=post.smitings.count
-        | Smite
+      = link_to "Smite",
+                reactions_path(reaction: { reactable_id: post.id,
+                                            reactable_type: "Post",
+                                            name: "smite" }),
+                method: :post,
+                class: "button is-rounded is-small is-outlined is-danger badge is-badge-danger",
+                "data-badge" => post.smitings.count
