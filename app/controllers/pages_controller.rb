@@ -18,6 +18,6 @@ class PagesController < ApplicationController
   private
 
   def redirect_signed_in
-    redirect_to about_path if user_signed_in?
+    redirect_to posts_path if user_signed_in?
   end
 end
