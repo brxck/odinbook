@@ -1,4 +1,5 @@
 module PostsHelper
+  # Adds badge to reaction button if reactions are > 0.
   def reaction_button_class(post, name)
     button_class = "button is-rounded is-small is-outlined is-info"
 
@@ -9,6 +10,7 @@ module PostsHelper
     end
   end
 
+  # Generates reaction buttons for post.
   def post_reaction_button(post, name, style)
     link_to name.capitalize,
             reactions_path(reaction: { reactable_id: post.id,
