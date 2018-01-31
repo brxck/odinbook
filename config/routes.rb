@@ -10,8 +10,9 @@ Rails.application.routes.draw do
   get "signup", to: "pages#signup", as: "signup"
 
   resources :users
+  resources :friends, only: %i[index destroy]
+  resources :friend_requests, except: %i[edit show]
   resources :posts
-  resources :friend_requests
   resources :reactions, only: %i[create]
 
   devise_for :users

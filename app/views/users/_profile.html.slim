@@ -6,6 +6,10 @@
   .level-item
       figure.image.is-128x128
         = image_tag Faker::Placeholdit.image("128x128", "png", "d3d3d3")
+
+.level
+  .level-item
+    = friend_button(@profile.user)
         
 .level
   .level-item
@@ -19,5 +23,4 @@ div.box
   p = "#{@profile.age} years old"  
   strong Location
   p = @profile.location
-
 

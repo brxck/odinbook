@@ -23,7 +23,7 @@ class User < ApplicationRecord
   before_create :build_default_profile
 
   def remove_friend(friend)
-    current_user.friends.destroy(friend)
+    friends.destroy(friend)
   end
 
   private

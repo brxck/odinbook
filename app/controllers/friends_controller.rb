@@ -6,6 +6,7 @@ class FriendsController < ApplicationController
 
   def destroy
     current_user.remove_friend(@friend)
+    redirect_back(fallback_location: root_path)
   end
 
   private

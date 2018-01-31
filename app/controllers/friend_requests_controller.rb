@@ -11,25 +11,26 @@ class FriendRequestsController < ApplicationController
     @friend_request = current_user.friend_requests.new(friend: friend)
 
     if @friend_request.save
-      flash[:success] = "Friend request sent."
+      # flash[:success] = "Friend request sent."
     else
       flash[:danger] = "Friend request could not be sent."
     end
-
-    redirect_to root_path
+    redirect_back fallback_location: root_path
   end
 
   def update
     @friend_request.accept
+    redirect_back fallback_location: root_path
   end
 
   def destroy
     @friend_request.destroy
+    redirect_back fallback_location: root_path
   end
 
   private
 
   def set_friend_request
     @friend_request = FriendRequest.find(params[:id])
-  end
+  end 
 end
