@@ -1,3 +1,9 @@
-h1.title Posts#index
-
-= render @posts
+.columns
+  .column.is-one-quarter
+    .box
+      p Sidebar
+  .column
+    = render @posts
+  .column.is-one-quarter
+    .box
+      p Notifications
