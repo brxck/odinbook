@@ -2,6 +2,8 @@ class FriendRequest < ApplicationRecord
   belongs_to :user
   belongs_to :friend, class_name: "User"
 
+  has_many :notifications, as: :notifiable, dependent: :destroy
+
   validates :user, presence: true
   validates :friend, presence: true, uniqueness: { scope: :user }
 

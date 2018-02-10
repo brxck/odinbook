@@ -15,6 +15,7 @@ class FriendRequestsController < ApplicationController
     else
       flash[:danger] = "Friend request could not be sent."
     end
+    notify(:create)
     redirect_back fallback_location: root_path
   end
 
@@ -33,4 +34,15 @@ class FriendRequestsController < ApplicationController
   def set_friend_request
     @friend_request = FriendRequest.find(params[:id])
   end 
+
+  def notify
+    if action_name == "create"
+      message = "#{current_user.name} sent you a friend request!"
+    else
+      message = "#{current_user.name} accepted your friend request!"
+    end
+    
+    @friend_request.notifications.build(user_id: @friend_request.friend_id,
+                                        body: message)
+  end
 end
