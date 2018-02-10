@@ -11,13 +11,18 @@ class FriendsTest < ActionDispatch::IntegrationTest
   test "send and cancel friend request" do
     visit user_path(@friend)
 
-    requests = ["@user.reload.friend_requests.size", "@friend.reload.pending_requests.size"]
+    # Test that friend requests and notification are generated
+    effects = ["@user.reload.friend_requests.size",
+               "@friend.reload.pending_requests.size",
+               "@friend.notifications.size"]
 
-    assert_difference requests, 1 do
-      find("input[id='add-friend']").click
+    # Send request
+    assert_difference effects, 1 do
+      find("input[id='add-friend']").click 
     end
 
-    assert_difference requests, -1 do
+    # Cancel request
+    assert_difference effects, -1 do
       find("input[id='cancel-request']").click
     end
   end

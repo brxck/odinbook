@@ -1,5 +1,6 @@
 class FriendRequestsController < ApplicationController
   before_action :set_friend_request, only: %i[update destroy]
+  after_action :notify, only: %i[create update]
 
   def index
     @incoming = FriendRequest.where(friend: current_user)
@@ -15,7 +16,6 @@ class FriendRequestsController < ApplicationController
     else
       flash[:danger] = "Friend request could not be sent."
     end
-    notify(:create)
     redirect_back fallback_location: root_path
   end
 
@@ -41,8 +41,8 @@ class FriendRequestsController < ApplicationController
     else
       message = "#{current_user.name} accepted your friend request!"
     end
-    
-    @friend_request.notifications.build(user_id: @friend_request.friend_id,
-                                        body: message)
+
+    @friend_request.notifications.create(user_id: @friend_request.friend_id,
+                                         body: message)
   end
 end
