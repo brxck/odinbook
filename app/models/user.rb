@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :friends, through: :friendships
 
   has_many :friend_requests, dependent: :destroy
+  has_many :pending_requests, class_name: "FriendRequest", foreign_key: :friend_id
   has_many :pending_friends, through: :friend_requests, source: :friend
 
   has_many :posts, dependent: :destroy
