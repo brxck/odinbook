@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
   resources :users
   resources :friends, only: %i[index destroy]
-  resources :friend_requests, except: %i[edit]
+  resources :friend_requests, except: %i[edit new]
   resources :posts
   resources :reactions, only: %i[create]
   resources :notifications, only: %i[destroy]
