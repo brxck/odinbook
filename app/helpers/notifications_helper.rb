@@ -1,4 +1,5 @@
 module NotificationsHelper
+  # Selects appropriate icon for notification type.
   def notification_icon(n)
     case n.notifiable_type
     when "FriendRequest"
@@ -6,23 +7,25 @@ module NotificationsHelper
     end
   end
 
+  # Generates deletion link for a friend request (and its dependent notification)
+  # or just the notification.
   def notification_delete(n)
-    case n.notifiable_type
-    when "FriendRequest"
-      deletable = FriendRequest.find(n.notifiable_id)
+    if n.notifiable_type == "FriendRequest"
+      link_to nil, FriendRequest.find(n.notifiable_id), method: :delete,
+                                                        class: "delete is-small"
     else
-      deletable = n
+      link_to nil, n, method: :delete, class: "delete is-small"
     end
-
-    link_to nil, deletable, method: :delete, class: "delete is-small"
   end
 
+  # Constructs link to notification's content.
   def notification_link(n)
     url_for controller: n.notifiable_type.pluralize.underscore,
             action: :show,
             id: n.notifiable_id
   end
 
+  # Chooses alert icon depending on whether notifications are present or not.
   def notification_badge
     if current_user.notifications.any?
       mi.notifications
