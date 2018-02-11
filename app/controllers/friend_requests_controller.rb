@@ -1,10 +1,18 @@
 class FriendRequestsController < ApplicationController
-  before_action :set_friend_request, only: %i[update destroy]
+  before_action :set_friend_request, only: %i[show update destroy]
   after_action :notify, only: %i[create update]
 
   def index
     @incoming = FriendRequest.where(friend: current_user)
     @outgoing = current_user.friend_requests
+  end
+
+  def show
+    if @friend_request.user == current_user
+      redirect_to @friend_request.friend
+    else
+      redirect_to @friend_request.user
+    end
   end
 
   def create

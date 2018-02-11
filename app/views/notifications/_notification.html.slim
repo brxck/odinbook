@@ -1,11 +1,10 @@
 .panel-block.is-block
-  .level
-    .level-left
-      span.panel-icon
-        == notification_icon(notification)
-      = notification.body
-    .level-right
-      .level-item
-        .
-      .level-item
-        = notification_delete(notification)
+  a href=notification_link(notification)
+    .level
+      .level-left
+        span.panel-icon
+          == notification_icon(notification)
+        = notification.body
+      .level-right
+        .level-item
+          = notification_delete(notification)
