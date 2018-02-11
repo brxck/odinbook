@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
-  layout "outside", except: %i[home]
-  skip_before_action :authenticate_user!
+  layout "outside", except: :home
+  skip_before_action :authenticate_user!, except: :home
   before_action :redirect_signed_in, only: %i[login signup]
 
   def home
