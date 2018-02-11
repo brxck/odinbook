@@ -19,7 +19,6 @@ class PostsController < ApplicationController
   def show
     @user = @post.user
     @profile = @user.profile
-    @friends = @user.friends
   end
 
   def destroy
