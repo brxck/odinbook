@@ -5,7 +5,7 @@ nav.navbar.has-shadow
 
   .navbar-end
     a.navbar-item href=root_path
-      = current_user.notifications.count
+      = current_user.notifications.count unless current_user.notifications.count.zero?
       span.icon
         == notification_badge
 
