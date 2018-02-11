@@ -62,11 +62,19 @@ def create_admin
                                   intro: "Odinbooks's Tom.",
                                   kind: "Demi-God")
 
-  User.all.each { |user| admin.friends << user unless user == admin }
+  User.all.each do |user|
+    case rand(1..5)
+    when 1
+      user.friend_requests.create(friend_id: admin.id)
+    when 2
+      next
+    else
+      admin.friends << user unless user == admin
+    end
+  end
 end
 
-
 seed_user(USER_NUMBER)
-seed_friendships(USER_NUMBER*4)
+seed_friendships(USER_NUMBER * 4)
 seed_comments(3)
 create_admin

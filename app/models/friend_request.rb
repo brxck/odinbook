@@ -11,6 +11,9 @@ class FriendRequest < ApplicationRecord
   validate :not_friends
   validate :not_pending
 
+  after_create :request_notify
+  after_update :acceptance_notify
+
   # Add friend through friendship association and destroy friend request.
   def accept
     user.friends << friend
@@ -29,5 +32,15 @@ class FriendRequest < ApplicationRecord
 
   def not_pending
     errors.add(:friend, "already requested") if friend.pending_friends.include?(user)
+  end
+
+  def request_notify
+    notifications.create(user_id: friend_id,
+                         body: "#{user.name} sent you a friend request!")
+  end
+
+  def acceptance_notify
+    notifications.create(user_id: user_id,
+                         body: "You're now friends with #{friend.name}!")
   end
 end
