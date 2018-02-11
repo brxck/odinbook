@@ -15,4 +15,12 @@ module NotificationsHelper
 
     link_to nil, deletable, method: :delete, class: "delete is-small"
   end
+
+  def notification_badge
+    if current_user.notifications.any?
+      mi.notifications
+    else
+      mi.notifications_none
+    end
+  end
 end

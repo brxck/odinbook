@@ -4,6 +4,11 @@ nav.navbar.has-shadow
       = link_to "OdinBook", root_path
 
   .navbar-end
+    a.navbar-item href=root_path
+      = current_user.notifications.count
+      span.icon
+        == notification_badge
+
     .navbar-item.has-dropdown.is-hoverable
       .navbar-link
         a href="#{user_path(current_user.id)}"
@@ -15,6 +20,7 @@ nav.navbar.has-shadow
               .level-right
                 .level-item
                   = current_user.name
+
       .navbar-dropdown
         .navbar-item
           = link_to "Profile"
