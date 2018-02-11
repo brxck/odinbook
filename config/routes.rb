@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   resources :friend_requests, except: %i[edit show]
   resources :posts
   resources :reactions, only: %i[create]
+  resources :notifications, only: %i[destroy]
 
   devise_for :users
 end

@@ -1,0 +1,12 @@
+nav.panel
+  p.panel-heading
+    - if @notifications.any?
+      span.panel-icon
+        == mi.notifications 
+      | Notifications
+    - else
+      span.panel-icon
+        == mi.notifications_none
+      | No Notifications
+
+  = render @notifications
