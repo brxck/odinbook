@@ -44,6 +44,8 @@ gem 'guard-livereload'
 gem 'normalize-rails'
 # Easy aesthetics
 gem 'bulma-rails'
+# Material icons
+gem 'material_icons'
 # Make stuff up
 gem 'faker'
 # Authentication
@@ -57,6 +59,8 @@ group :development, :test do
   gem 'selenium-webdriver'
   # Replace fixtures
   gem 'factory_bot_rails'
+  gem 'guard'
+  gem 'guard-livereload'
 end
 
 group :development do
