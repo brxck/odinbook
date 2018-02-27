@@ -18,12 +18,12 @@ class FriendsTest < ActionDispatch::IntegrationTest
 
     # Send request
     assert_difference effects, 1 do
-      find("input[id='add-friend']").click
+      click_link("add-friend")
     end
 
     # Cancel request
     assert_difference effects, -1 do
-      find("input[id='cancel-request']").click
+      click_link("cancel-request")
     end
   end
 end

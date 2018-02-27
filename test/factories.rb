@@ -5,4 +5,9 @@ FactoryBot.define do
     password "password"
     password_confirmation "password"
   end
+
+  factory :post do
+    body "raeda in fossa est."
+    user
+  end
 end
