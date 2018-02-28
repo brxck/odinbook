@@ -12,6 +12,8 @@ module IconHelper
       mi.person_add.md_18
     when "Reaction"
       reaction_icon(n.notifiable.name)
+    when "Comment"
+      mi.mode_comment.md_18
     end
   end
 end

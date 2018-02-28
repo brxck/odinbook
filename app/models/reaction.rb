@@ -15,7 +15,7 @@ class Reaction < ApplicationRecord
   end
 
   def notify
-    body_text = "#{user.name} #{name}ed your #{reactable_type.downcase}!"
+    body_text = "#{user.name} #{name}ed your #{reactable_type.downcase}."
     notifications.create(user_id: reactable.user.id,
                          body: body_text)
   end
