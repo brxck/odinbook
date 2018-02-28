@@ -1,4 +1,4 @@
-require 'test_helper'
+require "test_helper"
 
 class ReactionsTest < ActionDispatch::IntegrationTest
   def setup
@@ -7,14 +7,14 @@ class ReactionsTest < ActionDispatch::IntegrationTest
 
     sign_in @user
   end
-  
+
   test "post reactions" do
     visit url_for(@post)
 
     effects = ["@post.reload.reactions.size",
                "@post.user.reload.notifications.size",
                "@user.reload.reactions.size"]
-    
+
     # Add reaction
     assert_difference effects, 1 do
       click_link("Bless")
