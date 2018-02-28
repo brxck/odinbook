@@ -5,7 +5,7 @@ module IconHelper
     mi.send(icons[name.to_sym]).send("md_#{size.to_s}".to_sym)
   end
 
-    # Selects appropriate icon for notification type.
+  # Selects appropriate icon for notification type.
   def notification_icon(n)
     case n.notifiable_type
     when "FriendRequest"

@@ -5,7 +5,7 @@ class Reaction < ApplicationRecord
   has_many :notifications, as: :notifiable, dependent: :destroy
 
   validates :user, :reactable, :name, presence: true
-  
+
   before_create :delete_other_reaction
   after_create :notify
 
