@@ -52,15 +52,25 @@ def seed_comments(number)
   end
 end
 
+def seed_reactions(number)
+  reaction_list = %w[bless smite]
+  Post.all.each do |post|
+    number.times do
+      post.reactions.create(user_id: rand(1..USER_NUMBER),
+                            name: reaction_list.sample)
+    end
+  end
+end
+
 def create_admin
   admin = User.create!(name: "Brock McElroy",
-                       email: "brxck@protonmail.com",
+                       email: "brxck@example.com",
                        password: "testtest",
                        password_confirmation: "testtest")
   admin.profile.update_attributes(age: 23,
                                   location: "Tucson, AZ",
                                   intro: "Odinbooks's Tom.",
-                                  kind: "Demi-God")
+                                  kind: "Prime Mover")
 
   User.all.each do |user|
     case rand(1..5)
@@ -72,9 +82,12 @@ def create_admin
       admin.friends << user unless user == admin
     end
   end
+
+  2.times { seed_posts(admin) }
 end
 
 seed_user(USER_NUMBER)
+create_admin
 seed_friendships(USER_NUMBER * 4)
 seed_comments(3)
-create_admin
+seed_reactions(3)
