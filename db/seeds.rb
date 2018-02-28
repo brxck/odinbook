@@ -41,9 +41,9 @@ def seed_posts(user)
   user.posts.create!(body: body)
 end
 
-def seed_comments(number)
+def seed_comments(max)
   Post.all.each do |post|
-    number.times do
+    rand(0..max).times do
       body = Faker::HitchhikersGuideToTheGalaxy.quote
       user = User.order("RANDOM()").first
 
@@ -52,12 +52,19 @@ def seed_comments(number)
   end
 end
 
-def seed_reactions(number)
+def seed_reactions(max)
   reaction_list = %w[bless smite]
   Post.all.each do |post|
-    number.times do
+    rand(0..max).times do
       post.reactions.create(user_id: rand(1..USER_NUMBER),
                             name: reaction_list.sample)
+    end
+  end
+
+  Comment.all.each do |comment|
+    rand(0..max).times do
+      comment.reactions.create(user_id: rand(1..USER_NUMBER),
+                               name: reaction_list.sample)
     end
   end
 end
@@ -90,4 +97,4 @@ seed_user(USER_NUMBER)
 create_admin
 seed_friendships(USER_NUMBER * 4)
 seed_comments(3)
-seed_reactions(3)
+seed_reactions(10)
