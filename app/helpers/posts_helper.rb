@@ -11,11 +11,11 @@ module PostsHelper
   end
 
   # Generates reaction buttons for post.
-  def post_reaction_button(post, name, style, icon)
-    link_to icon.to_s + name.capitalize,
+  def post_reaction_button(post, name, style)
+    link_to reaction_icon(name).to_s + name.capitalize,
             reactions_path(reaction: { reactable_id: post.id,
-                                      reactable_type: "Post",
-                                      name: name }),
+                                       reactable_type: "Post",
+                                       name: name }),
             method: :post,
             class: "#{reaction_button_class(post, name)} #{style}",
             "data-badge" => post.reaction(name).count

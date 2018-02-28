@@ -1,18 +1,4 @@
 module NotificationsHelper
-  # Selects appropriate icon for notification type.
-  def notification_icon(n)
-    case n.notifiable_type
-    when "FriendRequest"
-      mi.person_add.md_18
-    when "Reaction"
-      if n.notifiable.name == "bless"
-        mi.wifi_tethering.md_18
-      elsif n.notifiable.name == "smite"
-        mi.flash_on.md_18
-      end
-    end
-  end
-
   # Generates deletion link for a friend request (and its dependent notification)
   # or just the notification.
   def notification_delete(n)

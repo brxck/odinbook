@@ -16,10 +16,10 @@
     .media-right
       .field
         .control
-          = post_reaction_button(post, "bless", "is-info is-badge-info", mi.wifi_tethering.md_18)
+          = post_reaction_button(post, "bless", "is-info is-badge-info")
       .field
         .control
-          = post_reaction_button(post, "smite", "is-danger is-badge-danger", mi.flash_on.md_18)
+          = post_reaction_button(post, "smite", "is-danger is-badge-danger")
 
   = render post.comments.order(created_at: :asc)
 
