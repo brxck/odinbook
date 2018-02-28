@@ -9,7 +9,7 @@ module IconHelper
   def notification_icon(n)
     case n.notifiable_type
     when "FriendRequest"
-      mi.person_add.md_18
+      mi.person.md_18
     when "Reaction"
       reaction_icon(n.notifiable.name)
     when "Comment"
