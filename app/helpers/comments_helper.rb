@@ -4,7 +4,7 @@ module CommentsHelper
     if comment.reaction(name).count.zero?
        name.capitalize
     else 
-      "[#{comment.reaction(name).count}] #{name.capitalize}"
+      "#{name.capitalize} [#{comment.reaction(name).count}]"
     end
   end
 
