@@ -1,5 +1,3 @@
-# rubocop:disable Style/StringLiterals
-
 source 'https://rubygems.org'
 
 git_source(:github) do |repo_name|
@@ -36,10 +34,6 @@ gem 'jbuilder', '~> 2.5'
 
 # Slim templating
 gem 'slim-rails'
-# Guard
-gem 'guard'
-# Live reload
-gem 'guard-livereload'
 # Better than a CSS reset
 gem 'normalize-rails'
 # Easy aesthetics
@@ -53,13 +47,15 @@ gem 'devise'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
   # Replace fixtures
   gem 'factory_bot_rails'
+  # Guard
   gem 'guard'
+  # Live reload
   gem 'guard-livereload'
 end
 
@@ -75,4 +71,4 @@ end
 gem 'rails_12factor', group: :production
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
