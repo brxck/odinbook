@@ -10,14 +10,14 @@
 .level
   .level-item
     .buttons.has-addons
-      = friend_button(@profile.user)
+      - unless @profile.user == current_user
+        = friend_button(@profile.user)
         
 .level
   .level-item
     h2.subtitle = @profile.kind
 
 div.box
-  br
   strong Intro
   p = @profile.intro
   strong> Age
