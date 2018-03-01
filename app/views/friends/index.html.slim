@@ -1,2 +1,5 @@
-h1 Friends#index
-p Find me in app/views/friends/index.html.slim
+.columns
+  = render "shared/menu"
+
+  .column.is-two-fifths
+    = render @friends
