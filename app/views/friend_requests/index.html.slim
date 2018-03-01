@@ -1,0 +1,17 @@
+.columns
+  = render "shared/menu"
+
+  .column.is-two-fifths
+    .box
+      h2.subtitle Pending Requests
+      - if @incoming.any?
+        = render @incoming
+      - else
+        p No pending requests.
+
+    .box
+      h2.subtitle Sent Requests
+      - if @outgoing.any?
+        = render @outgoing
+      - else
+        p No sent requests.
