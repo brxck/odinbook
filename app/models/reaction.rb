@@ -15,7 +15,8 @@ class Reaction < ApplicationRecord
   end
 
   def notify
-    body_text = "#{user.name} #{name}ed your #{reactable_type.downcase}."
+    past_tense = { "smite" => "smited", "bless" => "blessed" }
+    body_text = "#{user.name} #{past_tense[name]} your #{reactable_type.downcase}."
     notifications.create(user_id: reactable.user.id,
                          body: body_text)
   end
