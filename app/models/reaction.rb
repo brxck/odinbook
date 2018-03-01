@@ -10,8 +10,8 @@ class Reaction < ApplicationRecord
   after_create :notify
 
   def delete_other_reaction
-    other_reaction = Reaction.where(user_id: user_id, reactable: reactable).take
-    other_reaction.destroy if other_reaction
+    other_reaction = Reaction.find_by(user_id: user_id, reactable: reactable)
+    other_reaction&.destroy
   end
 
   def notify

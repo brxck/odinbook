@@ -1,7 +1,7 @@
 USER_NUMBER = 10
 
 GODS = %w[Aion Aether Ananke Chaos Chronos Erebus Eros Hypnos Nesoi Uranus Gaia Ourea Phanes Pontus Tartarus Thalassa Thanatos Hemera Nyx Nemesis Coeus Crius Cronus Hyperion Iapetus Mnemosyne Oceanus Phoebe Rhea Tethys Theia Themis Asteria Astraeus Atlas Aura Clymene Dione Helios Selene Eos Epimetheus Eurybia Eurynome Lelantos Leto Menoetius Metis Ophion Pallas Perses Prometheus Styx Abderus Achilles Aeneas Ajax Amphitryon Antilochus Bellerophon Castor Chrysippus Daedalus Diomedes Eleusis Eunostus Ganymede Hector Hercules Icarus Iolaus Jason Meleager Odysseus Orpheus Pandion Perseus Theseus Alcestis Amymone Andromache Andromeda Antigone Arachne Ariadne Atalanta Briseis Caeneus Cassandra Cassiopeia Clytemnestra Danaë Deianeira Electra Europa Hecuba Helen Hermione Iphigenia Ismene Jocasta Medea Medusa Niobe Pandora Penelope Phaedra Polyxena Semele Thrace].shuffle
-TYPES = %w[God Primordial Titan Hero]
+TYPES = %w[God Primordial Titan Hero].freeze
 
 def seed_user(number)
   number.times do

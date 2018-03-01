@@ -6,7 +6,7 @@ class PagesController < ApplicationController
   def home
     @posts = Post.where(user: current_user)
                  .or(Post.where(user: current_user.friends))
-    
+
     @notifications = current_user.notifications
   end
 
