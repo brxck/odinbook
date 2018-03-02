@@ -1,26 +1,25 @@
-.column.is-one-quarter
-    .box
-      aside.menu
-        p.menu-label OdinBook
-        ul.menu-list
-          li
-            a href=root_path
-              span.panel-icon == mi.home.md_18 
-              | Home
-          li
-            a href=url_for(current_user)
-              span.panel-icon == mi.person.md_18 
-              | Profile
-          li
-            a href=friends_path
-              span.panel-icon == mi.people.md_18 
-              | Friends
-          li
-            a href=friend_requests_path
-              span.panel-icon == mi.person_add.md_18 
-              | Requests
+.box
+  aside.menu
+    p.menu-label OdinBook
+    ul.menu-list
+      li
+        a href=root_path
+          span.panel-icon == mi.home.md_18 
+          | Home
+      li
+        a href=url_for(current_user)
+          span.panel-icon == mi.person.md_18 
+          | Profile
+      li
+        a href=friends_path
+          span.panel-icon == mi.people.md_18 
+          | Friends
+      li
+        a href=friend_requests_path
+          span.panel-icon == mi.person_add.md_18 
+          | Requests
 
-          li
-            a href="#"
-              span.panel-icon == mi.search.md_18
-              | Search
+      li
+        a href="#"
+          span.panel-icon == mi.search.md_18
+          | Search
