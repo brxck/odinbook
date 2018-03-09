@@ -1,0 +1,14 @@
+article.media
+  figure.media-left
+    p.image.is-100x100
+      = image_tag Faker::Placeholdit.image("100x100", 'png', 'd3d3d3')
+
+  .media-content
+    strong = link_to incoming_request.user.name, incoming_request.user
+    br
+    = pluralize(incoming_request.user.friends.where(id: current_user.friends).count, "mutual friend")
+
+  .media-right
+    .field
+      .control
+        = link_to "Accept", incoming_request, method: :patch, class: "button is-info"

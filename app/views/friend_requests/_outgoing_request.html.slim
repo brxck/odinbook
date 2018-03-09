@@ -1,0 +1,14 @@
+article.media
+  figure.media-left
+    p.image.is-100x100
+      = image_tag Faker::Placeholdit.image("100x100", 'png', 'd3d3d3')
+
+  .media-content
+    strong = link_to outgoing_request.friend.name, outgoing_request.friend
+    br
+    = pluralize(outgoing_request.friend.friends.where(id: current_user.friends).count, "mutual friend")
+
+  .media-right
+    .field
+      .control
+        = link_to "Cancel", outgoing_request, method: :delete, class: "button is-danger is-outlined"
