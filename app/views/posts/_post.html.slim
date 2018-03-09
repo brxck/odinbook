@@ -1,8 +1,8 @@
 .box
   article.media
     figure.media-left
-      p.image.is-32x32
-        = image_tag Faker::Placeholdit.image("32x32", 'png', 'd3d3d3')
+      p.image.is-50x50
+        = image_tag Faker::Placeholdit.image("50x50", 'png', 'd3d3d3')
     .media-content
       .level.is-mobile
         .level-left 
@@ -13,12 +13,12 @@
 
       = post.body
 
-    .media-right
-      .field
-        .control
+  .media
+    .media-content
+      .level.is-mobile
+        .level-item
           = post_reaction_button(post, "bless", "is-info is-badge-info")
-      .field
-        .control
+        .level-item
           = post_reaction_button(post, "smite", "is-danger is-badge-danger")
 
   = render post.comments.order(created_at: :asc)
