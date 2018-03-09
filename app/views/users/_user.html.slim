@@ -5,8 +5,11 @@ article.media
 
   .media-content
     strong = link_to user.name, user
-    br
-    = pluralize(user.friends.where(id: current_user.friends).count, "mutual friend")
+
+    p = user.profile.kind
+    
+    - if user.friends.where(id: current_user.friends).count > 0
+      p = pluralize(user.friends.where(id: current_user.friends).count, "mutual friend")
 
   .media-right
     .field
