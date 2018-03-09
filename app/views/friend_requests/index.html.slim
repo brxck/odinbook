@@ -10,3 +10,5 @@
     .box
       h2.subtitle Sent Requests
       = render(partial: "outgoing_request", collection: @outgoing) || "No sent requests."
+
+  = render "shared/notifications_panel"
