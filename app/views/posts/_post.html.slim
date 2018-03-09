@@ -1,26 +1,31 @@
-.box
-  article.media
-    figure.media-left
-      p.image.is-50x50
-        = image_tag Faker::Placeholdit.image("50x50", 'png', 'd3d3d3')
-    .media-content
-      .level.is-mobile
-        .level-left 
+article.card
+  .card-content
+    .media
+      figure.media-left
+        p.image.is-50x50
+          = image_tag Faker::Placeholdit.image("50x50", 'png', 'd3d3d3')
+      .media-content
+        .level.is-mobile.is-marginless
+          .level-left 
+            .level-item
+              strong = link_to post.user.name, post.user
+            .level-item
+              .is-size-7 = time_ago_in_words(post.created_at) + " ago"
+
+        p = post.body
+        br
+
+        nav.level.is-mobile
+          .level-item  
+            = post_reaction_button(post, "bless", "is-info")
           .level-item
-            strong = link_to post.user.name, post.user
+            = post_reaction_button(post, "smite", "is-danger")
           .level-item
-            .is-size-7 = time_ago_in_words(post.created_at) + " ago"
+            = link_to mi.create.md_18.to_s, "#", class: "button is-rounded is-small is-outlined is-info is-success"
+    
+    .card-footer
+    br
 
-      = post.body
+    = render post.comments.order(created_at: :asc)
 
-  .media
-    .media-content
-      .level.is-mobile
-        .level-item
-          = post_reaction_button(post, "bless", "is-info is-badge-info")
-        .level-item
-          = post_reaction_button(post, "smite", "is-danger is-badge-danger")
-
-  = render post.comments.order(created_at: :asc)
-
-            
+br
