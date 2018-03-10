@@ -5,6 +5,7 @@ class Post < ApplicationRecord
   has_many :reactions, as: :reactable, dependent: :destroy
 
   validates :user, :body, presence: true
+  validates :link, url: { allow_blank: true }
 
   include ReactionsHelper
 end

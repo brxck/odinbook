@@ -1,10 +1,12 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[show]
 
-  def new
-  end
-
   def create
+    @post = @current_user.posts.new(post_params)
+
+    flash[:danger] = @post.errors.full_messages.to_sentence unless @post.save
+
+    redirect_to :home
   end
 
   def edit
@@ -26,6 +28,10 @@ class PostsController < ApplicationController
   end
 
   private
+
+  def post_params
+    params.require(:post).permit(:body, :link)
+  end
 
   def set_post
     @post = Post.find(params[:id])

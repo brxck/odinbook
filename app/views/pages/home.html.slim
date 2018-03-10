@@ -3,6 +3,28 @@
     = render "shared/menu"
 
   .column.is-two-fifths
+    article.card
+      .card-content
+        .media
+          figure.media-left
+            p.image.is-50x50
+              = image_tag Faker::Placeholdit.image("50x50", 'png', 'd3d3d3')
+          .media-content
+            = form_for current_user.posts.new do |f|
+              .field
+                = f.text_area :body, class: "textarea", 
+                                     placeholder: "Write your next post!",
+                                     rows: "2"
+              .field.is-grouped
+                .control.has-icons-left
+                  = f.text_field :link, class: "input is-small", placeholder: "Share a link"
+                  span.icon.is-small.is-left
+                    = mi.link.md_18.to_s                  
+                .control
+                  = f.submit "post", class: "button is-info is-small is-pulled-right"
+    
+    br
+
     = render @posts
 
   = render "shared/notifications_panel"
