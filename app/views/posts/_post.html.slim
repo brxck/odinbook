@@ -23,9 +23,10 @@ article.card
           .level-item
             = link_to mi.create.md_18.to_s, post, class: "button is-rounded is-small is-outlined is-info is-success"
     
-    .card-footer
-    br
+    - if post.comments.any?
+      .card-footer
+      br
 
-    = render post.comments.order(created_at: :asc)
+      = render post.comments.order(created_at: :asc)
 
 br
