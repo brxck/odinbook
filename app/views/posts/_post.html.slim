@@ -13,6 +13,13 @@ article.card
               .is-size-7 = time_ago_in_words(post.created_at) + " ago"
 
         p = post.body
+        
+        - if post.link?
+          small
+            span.icon == mi.link.md_18
+            = link_to post.link_title, post.link
+          br
+        
         br
 
         nav.level.is-mobile
