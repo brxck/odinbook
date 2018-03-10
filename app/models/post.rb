@@ -7,5 +7,7 @@ class Post < ApplicationRecord
   validates :user, :body, presence: true
   validates :link, url: { allow_blank: true }
 
+  default_scope { order("created_at DESC") }
+
   include ReactionsHelper
 end
