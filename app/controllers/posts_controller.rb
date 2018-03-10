@@ -19,6 +19,7 @@ class PostsController < ApplicationController
   def show
     @user = @post.user
     @profile = @user.profile
+    @comment = @post.comments.new
   end
 
   def destroy

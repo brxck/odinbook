@@ -3,13 +3,15 @@ div.columns
     = render "shared/profile"
 
   div.column.is-two-fifths
-    section.section
-      a href=url_for(@user)
-        .level
-          .level-item
-            span.icon.is-small == mi.arrow_back.md_18
-            | More Posts
-      br
-      = render @post
+    br
+    a href=url_for(@user)
+      .level
+        .level-item
+          span.icon.is-small == mi.arrow_back.md_18
+          | More Posts
+
+    br
+
+    = render partial: "post_commentable", object: @post, as: :post
 
   = render "shared/notifications_panel"
