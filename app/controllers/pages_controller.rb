@@ -1,11 +1,15 @@
 class PagesController < ApplicationController
-  layout "outside", except: :home
+  layout "outside", except: %i[home search]
   skip_before_action :authenticate_user!, except: :home
   before_action :redirect_signed_in, only: %i[login signup]
 
   def home
     @posts = Post.where(user: current_user)
                  .or(Post.where(user: current_user.friends))
+  end
+
+  def search
+    @results = User.where("name LIKE ?", params[:search])
   end
 
   def login

@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   # Authenticated pages
   get "home", to: "pages#home", as: "home"
+  get "search", to: "pages#search", as: "search"
 
   resources :users
   resources :friends, only: %i[index destroy]

@@ -1,0 +1,23 @@
+.columns
+  .column.is-one-quarter
+    = render "shared/menu"
+
+  .column.is-two-fifths
+    = form_tag search_path, method: :get
+      .field
+        .control.has-icons-left
+          = text_field_tag :search,
+                           params[:search],
+                           placeholder: "Enter your search!",
+                           class: "input is-expanded"
+          span.icon.is-left == mi.search.md_24
+
+      .box
+        - if @results.none? && params[:search]
+          p No results found.
+        - elsif params[:search]
+          = render @results
+        - else
+          = render User.all
+
+  = render "shared/notifications_panel"
