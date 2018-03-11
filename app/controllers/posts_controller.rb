@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: %i[show edit update]
+  before_action :set_post, except: %i[create index]
 
   def create
     @post = @current_user.posts.new(post_params)
@@ -32,6 +32,8 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    @post.destroy
+    redirect_to root_path
   end
 
   private
