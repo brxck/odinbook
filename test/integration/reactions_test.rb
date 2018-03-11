@@ -17,12 +17,12 @@ class ReactionsTest < ActionDispatch::IntegrationTest
 
     # Add reaction
     assert_difference effects, 1 do
-      click_link("Bless")
+      click_link("smite-post-button")
     end
 
     # Remove reaction
     assert_difference effects, -1 do
-      click_link("Bless")
+      click_link("smite-post-button")
     end
   end
 
@@ -36,7 +36,7 @@ class ReactionsTest < ActionDispatch::IntegrationTest
     # Don't receive notifications for reacting to your own post.
     assert_difference effects, 1 do
       assert_no_difference "@user.reload.notifications.size" do
-        click_link("Bless")
+        click_link("bless-post-button")
       end
     end
   end

@@ -12,6 +12,7 @@ module PostsHelper
                                        reactable_type: "Post",
                                        name: name }),
             method: :post,
-            class: "button is-rounded is-small is-outlined " + style
+            class: "button is-rounded is-small is-outlined " + style,
+            id: "#{name}-post-button"
   end
 end
