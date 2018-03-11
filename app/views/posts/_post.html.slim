@@ -10,12 +10,14 @@ article.card
             br
             span.icon.is-small = link_to mi.create.md_18,
                                          edit_post_path(post.id),
-                                         class: "is-size-7 has-text-grey-light"
+                                         class: "is-size-7 has-text-grey-light",
+                                         id: "post-edit-button"
             = " "
             span.icon.is-small = link_to mi.delete.md_18,
                                          post,
                                          method: :delete,
-                                         class: "is-size-7 has-text-grey-light"
+                                         class: "is-size-7 has-text-grey-light",
+                                         id: "post-delete-button"
 
       .media-content
         .level.is-mobile.is-marginless

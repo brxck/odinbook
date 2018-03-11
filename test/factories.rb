@@ -18,6 +18,7 @@ FactoryBot.define do
 
   factory :post do
     body "raeda in fossa est."
+    link "https://example.com"
     user
   end
 end

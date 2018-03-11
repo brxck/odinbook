@@ -40,19 +40,29 @@ div.columns
                   .level-item
                     .is-size-7 = time_ago_in_words(@post.created_at) + " ago"
 
-              = f.text_area :body, class: "textarea"
+              = f.text_area :body,
+                            class: "textarea",
+                            id: "post-body-field"
               br
 
               - if @post.link?
                 .field
                   .control.has-icons-left
-                    = f.text_field :link, class: "input"
+                    = f.text_field :link,
+                                   class: "input",
+                                   id: "post-link-field"
+
                     span.icon.is-small.is-left == mi.link.md_18
 
         footer.card-footer
           .card-footer-item
             = f.submit "Save", class: "has-text-link button is-white"
-          = link_to "Delete", @post, method: :delete, class: "card-footer-item"
-          = link_to "Cancel", root_path, class: "card-footer-item"
+    
+          = link_to "Delete", @post,
+                              method: :delete,
+                              class: "card-footer-item"
+
+          = link_to "Cancel", root_path,
+                              class: "card-footer-item"
 
   = render "shared/notifications_panel"

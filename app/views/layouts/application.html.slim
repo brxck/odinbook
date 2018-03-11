@@ -13,7 +13,7 @@ html
 
     .container
       - flash.each do |type, message|
-        div class="notification is-#{type}"
+        div#flash class="notification is-#{type}"
           = message
 
     section.section
