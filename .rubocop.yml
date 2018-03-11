@@ -38,3 +38,7 @@ Metrics/BlockLength:
 
 Rails:
   Enabled: true
+
+Rails: DynamicFindBy:
+  Exclude:
+    - test/**/*
