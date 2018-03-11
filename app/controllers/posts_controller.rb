@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, except: %i[create index]
-  before_action :is_post_owner?, except: %i[create index] 
+  before_action :is_post_owner?, except: %i[create index show] 
 
   def create
     @post = @current_user.posts.new(post_params)
