@@ -4,6 +4,19 @@ article.card
       figure.media-left
         p.image.is-50x50
           = image_tag Faker::Placeholdit.image("50x50", 'png', 'd3d3d3')
+
+        - if post.user == current_user
+          .has-text-centered
+            br
+            span.icon.is-small = link_to mi.create.md_18,
+                                         edit_post_path(post.id),
+                                         class: "is-size-7 has-text-grey-light"
+            = " "
+            span.icon.is-small = link_to mi.delete.md_18,
+                                         post,
+                                         method: :delete,
+                                         class: "is-size-7 has-text-grey-light"
+
       .media-content
         .level.is-mobile.is-marginless
           .level-left 
@@ -28,7 +41,9 @@ article.card
           .level-item
             = post_reaction_button(post, "smite", "is-danger")
           .level-item
-            = link_to mi.create.md_18.to_s, post, class: "button is-rounded is-small is-outlined is-info is-success"
+            = link_to mi.create.md_18.to_s,
+                      post,
+                      class: "button is-rounded is-small is-outlined is-info is-success"
     
     - if post.comments.any?
       .card-footer

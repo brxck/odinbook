@@ -1,5 +1,4 @@
-article.card
-  .card-content
+.card-content
     .media
       figure.media-left
         p.image.is-50x50
@@ -44,29 +43,3 @@ article.card
             = link_to mi.create.md_18.to_s,
                       post,
                       class: "button is-rounded is-small is-outlined is-info is-success"
-    
-    .card-footer
-    br
-
-    = render post.comments.order(created_at: :asc)
-
-    .media
-      figure.media-left
-        p.image.is-32x32
-          = image_tag Faker::Placeholdit.image("32x32", "png", "d3d3d3")
-
-      .media-content
-        = form_for @comment do |f|
-          .field
-            = f.text_area :body, class: "textarea", 
-                                      placeholder: "Add your comments...",
-                                      rows: "2"
-          .field
-            .control
-              = f.submit "submit", class: "button is-small is-info is-pulled-right"
-
-          // hidden fields to specify which post
-          = f.hidden_field :commentable_type
-          = f.hidden_field :commentable_id
-
-br

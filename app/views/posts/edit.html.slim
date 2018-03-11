@@ -1,2 +1,58 @@
-h1 Posts#edit
-p Find me in app/views/posts/edit.html.slim
+div.columns
+  div.column.is-one-quarter
+    = render "shared/menu"
+
+  div.column.is-two-fifths
+    br
+    a href=url_for(@user)
+      .level
+        .level-item
+          span.icon.is-small == mi.arrow_back.md_18
+          | More Posts
+
+    br
+
+    = form_for @post do |f|
+      article.card
+        .card-content
+          .media
+            figure.media-left
+              p.image.is-50x50
+                = image_tag Faker::Placeholdit.image("50x50", 'png', 'd3d3d3')
+
+              - if @post.user == current_user
+                .has-text-centered
+                  br
+                  span.icon.is-small = link_to mi.create.md_18,
+                                              edit_post_path(@post.id),
+                                              class: "is-size-7 has-text-grey-light"
+                  = " "
+                  span.icon.is-small = link_to mi.delete.md_18,
+                                              @post,
+                                              method: :delete,
+                                              class: "is-size-7 has-text-grey-light"
+
+            .media-content
+              .level.is-mobile.is-marginless
+                .level-left 
+                  .level-item
+                    strong = link_to @post.user.name, @post.user
+                  .level-item
+                    .is-size-7 = time_ago_in_words(@post.created_at) + " ago"
+
+              = f.text_area :body, class: "textarea"
+              br
+
+              - if @post.link?
+                .field
+                  .control.has-icons-left
+                    = f.text_field :link, class: "input"
+                    span.icon.is-small.is-left == mi.link.md_18
+
+        footer.card-footer
+          .card-footer-item
+            = f.submit "Save", class: "has-text-link button is-white"
+          = link_to "Delete", @post, method: :delete, class: "card-footer-item"
+          = link_to "Cancel", root_path, class: "card-footer-item"
+
+  = render "shared/notifications_panel"

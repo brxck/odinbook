@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: %i[show]
+  before_action :set_post, only: %i[show edit update]
 
   def create
     @post = @current_user.posts.new(post_params)
@@ -13,6 +13,13 @@ class PostsController < ApplicationController
   end
 
   def update
+    if @post.update_attributes(post_params)
+      redirect_to @post
+    else
+      flash.now[:danger] = @post.errors.full_messages.to_sentence
+      render :edit
+    end
+    
   end
 
   def index
