@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, except: %i[create index]
+  before_action :is_post_owner?, except: %i[create index] 
 
   def create
     @post = @current_user.posts.new(post_params)
@@ -44,5 +45,12 @@ class PostsController < ApplicationController
 
   def set_post
     @post = Post.find(params[:id])
+  end
+
+  def is_post_owner?
+    unless @post.user == current_user
+      flash[:danger] = "You cannot modify this post."
+      redirect_back fallback_location: root_path
+    end
   end
 end
