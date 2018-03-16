@@ -13,11 +13,15 @@
           span.icon.is-left == mi.search.md_24
 
       .box
-        - if @results.none? && params[:search]
-          p No results found.
-        - elsif params[:search]
+        - if @results
           = render @results
+          br
+          = paginate @results
+        - elsif params[:search]
+          p No results found.
         - else
-          = render User.all
+          = render @users
+          br
+          = paginate @users
 
   = render "shared/notifications_panel"

@@ -42,6 +42,9 @@
     
     br
 
+    = paginate @posts if params[:page]
+    br
     = render @posts
+    = paginate @posts
 
   = render "shared/notifications_panel"
