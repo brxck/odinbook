@@ -5,6 +5,12 @@
   .column.is-two-fifths
     .box
       h2.subtitle Your Friends
+
+      - if params[:page]
+        = paginate @friends
+        br
       = render @friends
+      br
+      = paginate @friends
 
   = render "shared/notifications_panel"
