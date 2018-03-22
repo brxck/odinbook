@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
-  before_action :set_user
+  before_action :set_user, except: :edit
 
   def edit
+    @user = current_user
   end
 
   def update

@@ -5,7 +5,9 @@ class PagesController < ApplicationController
 
   def home
     @posts = Post.where(user: current_user)
-                 .or(Post.where(user: current_user.friends)).page(params[:page])
+                 .or(Post.where(user: current_user.friends))
+                 .page(params[:page])
+                 .includes(:user, comments: :user)
   end
 
   def search

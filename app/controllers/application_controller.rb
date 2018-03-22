@@ -4,6 +4,6 @@ class ApplicationController < ActionController::Base
   before_action :set_notifications, unless: -> { current_user.nil? }
 
   def set_notifications
-    @notifications = current_user.notifications
+    @notifications = current_user.notifications.includes(:notifiable)
   end
 end
