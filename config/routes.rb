@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "pages#login"
+  root to: redirect("/login")
 
   devise_for :users do
     delete "/logout" => "devise/sessions#destroy", :as => :destroy_user_session
