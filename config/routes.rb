@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   root "pages#login"
 
+  devise_for :users do
+    delete "/logout" => "devise/sessions#destroy", :as => :destroy_user_session
+  end
+
   # Hijack devise authenticate_user! redirect to prevent 401.
   get "users/sign_in", to: "pages#login"
 
@@ -21,6 +25,4 @@ Rails.application.routes.draw do
   resources :comments, only: %i[show create]
   resources :reactions, only: %i[show create]
   resources :notifications, only: %i[destroy]
-
-  devise_for :users
 end
