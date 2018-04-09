@@ -10,12 +10,14 @@ html
 
   body
 
-    section.hero.is-success.is-medium
+    section.hero.is-medium style="background-image:url('#{image_path 'hero.jpg'}');background-size:cover"
+
       .hero-head
         .container
           - flash.each do |type, message|
-            div class="notification is-success"
-            = message
+            div class=type
+            / Hack to disable device success flashes
+            = message unless message.blank?
 
       .hero-body
         .container
