@@ -10,11 +10,14 @@ module NotificationsHelper
     end
   end
 
+  def get_root(node)
+    return node unless node.respond_to?(:parent)
+    get_root(node.parent)
+  end
+
   # Constructs link to notification's content.
   def notification_link(n)
-    url_for controller: n.notifiable_type.pluralize.underscore,
-            action: :show,
-            id: n.notifiable_id
+    url_for get_root(n.notifiable)
   end
 
   # Chooses alert icon depending on whether notifications are present or not.

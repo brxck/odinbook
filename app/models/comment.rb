@@ -16,4 +16,8 @@ class Comment < ApplicationRecord
     notifications.create(user_id: commentable.user.id,
                          body: body_text)
   end
+
+  def parent
+    commentable
+  end
 end

@@ -11,10 +11,6 @@ class ReactionsController < ApplicationController
     redirect_back(fallback_location: root_path)
   end
 
-  def show
-    redirect_to url_for controller: reactable_type, action: :show, id: reactable_id
-  end
-
   private
 
   def reaction_params

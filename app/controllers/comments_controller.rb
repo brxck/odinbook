@@ -1,10 +1,4 @@
 class CommentsController < ApplicationController
-  def show
-    redirect_to url_for controller: commentable_type,
-                        action: show,
-                        id: commentable_id
-  end
-
   def create
     comment = current_user.comments.new(comment_params)
 

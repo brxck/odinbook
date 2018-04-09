@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   resources :friends, only: %i[index destroy]
   resources :friend_requests, except: %i[edit new]
   resources :posts
-  resources :comments, only: %i[show create]
-  resources :reactions, only: %i[show create]
+  resources :comments, only: %i[create]
+  resources :reactions, only: %i[create]
   resources :notifications, only: %i[destroy]
 end

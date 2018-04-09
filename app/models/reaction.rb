@@ -20,4 +20,8 @@ class Reaction < ApplicationRecord
     notifications.create(user_id: reactable.user.id,
                          body: body_text)
   end
+
+  def parent
+    reactable
+  end
 end
