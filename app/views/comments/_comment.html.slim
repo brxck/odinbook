@@ -1,7 +1,7 @@
   article.media
     figure.media-left
       p.image.is-32x32
-        = image_tag Faker::Placeholdit.image("32x32", "png", "d3d3d3")
+        = image_tag avatar(comment.user, 32)
 
     .media-content
       small

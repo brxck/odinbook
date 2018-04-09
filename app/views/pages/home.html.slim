@@ -9,7 +9,7 @@
 
           figure.media-left
             p.image.is-50x50
-              = image_tag Faker::Placeholdit.image("50x50", 'png', 'd3d3d3')
+              = image_tag avatar(current_user, 50)
 
           .media-content
             = form_for current_user.posts.new do |f|
@@ -30,9 +30,11 @@
                     = mi.link.md_18.to_s                  
 
                 .control
-                  = f.submit "add image",
-                              class: "button is-success is-small",
-                              id: "post-image-button"
+                  label.post-image-button class="button is-success is-small"
+                    | add image
+                    span style="display:none"
+                      = f.file_field :image,
+                                    accept: "image/png,image/gif,image/jpeg"
 
                 .control
                   = f.submit "post",

@@ -23,6 +23,14 @@ module UsersHelper
       link_to (mi.person_add.to_s + "Add Friend"),
               friend_requests_path(friend_id: friend.id), method: :post,
                                                           class: "button is-info level-item", id: "add-friend"
+    end    
+  end
+
+  def avatar(user, size)
+    if user.profile.avatar
+      user.profile.avatar
+    else
+    "https://api.adorable.io/avatars/#{size}/#{user.name}.png"            
     end
   end
 end

@@ -1,7 +1,7 @@
 article.media
   figure.media-left
     p.image.is-100x100
-      = image_tag Faker::Placeholdit.image("100x100", 'png', 'd3d3d3')
+      = image_tag avatar(incoming_request.user, 100)
 
   .media-content
     strong = link_to incoming_request.user.name, incoming_request.user

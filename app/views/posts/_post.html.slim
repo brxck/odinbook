@@ -1,9 +1,13 @@
 article.card
+  - unless post.image.file.nil?
+    .card-image
+      figure.image
+         = image_tag post.image.url
   .card-content
     .media
       figure.media-left
         p.image.is-50x50
-          = image_tag Faker::Placeholdit.image("50x50", 'png', 'd3d3d3')
+          = image_tag avatar(post.user, 50)   
 
         - if post.user == current_user
           .has-text-centered

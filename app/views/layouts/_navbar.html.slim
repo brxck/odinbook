@@ -1,7 +1,7 @@
 nav.navbar.has-shadow
   .navbar-brand
     .navbar-item
-      = link_to "OdinBook", root_path
+      strong = link_to "OdinBook", root_path
 
   .navbar-end
     a.navbar-item href=root_path
@@ -18,7 +18,7 @@ nav.navbar.has-shadow
             .level-left
               .level-item
                 figure.image.is-24x24
-                  = image_tag Faker::Placeholdit.image("24x24", "png")
+                  = image_tag avatar(current_user, 24)
               .level-right
                 .level-item
                   = current_user.name
@@ -29,4 +29,4 @@ nav.navbar.has-shadow
         .navbar-item
           = link_to "Settings", edit_user_path(current_user.id)
         .navbar-item         
-          = link_to "Log Out", destroy_user_session_path
+          = link_to "Log Out", destroy_user_session_path, method: :delete

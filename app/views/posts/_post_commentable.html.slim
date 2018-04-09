@@ -3,7 +3,7 @@ article.card
     .media
       figure.media-left
         p.image.is-50x50
-          = image_tag Faker::Placeholdit.image("50x50", 'png', 'd3d3d3')
+        = image_tag avatar(post.user, 50)
 
         - if post.user == current_user
           .has-text-centered
@@ -55,7 +55,7 @@ article.card
     .media
       figure.media-left
         p.image.is-32x32
-          = image_tag Faker::Placeholdit.image("32x32", "png", "d3d3d3")
+          = image_tag avatar(current_user, 32)
 
       .media-content
         = form_for @comment do |f|

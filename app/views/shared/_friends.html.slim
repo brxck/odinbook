@@ -4,6 +4,7 @@
     .level
       .level-left
         .level-item
-          = image_tag Faker::Placeholdit.image("24x24", "png", "d3d3d3")
+          figure.image.is-24x24
+            = image_tag avatar(friend, 24)
         .level-item
           = link_to friend.name, friend
