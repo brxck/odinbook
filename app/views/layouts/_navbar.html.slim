@@ -5,7 +5,7 @@ nav.navbar.has-shadow
 
   .navbar-end
     a.navbar-item href=root_path
-      - if current_user.notifications.count.zero?
+      - if current_user.nil? || current_user.notifications.count.zero?
         span.icon == mi.notifications_none
       - else
         span.badge.icon data-badge=current_user.notifications.count 
