@@ -40,8 +40,8 @@ def seed_posts(user)
   body = Faker::HitchhikersGuideToTheGalaxy.quote
   remote_image_url = nil
   if rand(0..5) == 1
-    response = HTTP.auth("Client-ID 9bd9fa3c43d2ad12f843fc9dd0a71a0d68240e75eb2c4424002d1055cbecb5cc")
-                  .get("https://api.unsplash.com/photos/random", params: { featured: :true, orientation: :squarish })
+    response = HTTP.auth("Client-ID #{ENV["unsplash_access_key"]}")
+                   .get("https://api.unsplash.com/photos/random", params: { featured: :true, orientation: :squarish })
     remote_image_url = response.parse(:json)["urls"]["regular"].to_s
   end
   user.posts.create!(body: body, remote_image_url: remote_image_url)
